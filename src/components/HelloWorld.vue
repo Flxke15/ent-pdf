@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import print from '@/print/sb3'
+import print from '@/print/sb2'
 
 export default {
   methods: {
     printPDF(){
-      print.exportSb3();
+      print.exportSb2();
     }
   }
 }
