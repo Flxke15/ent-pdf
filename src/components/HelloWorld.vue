@@ -182,7 +182,7 @@ export default {
         { title: 'Fat (g)', key: 'fat' },
         { title: 'Carbs (g)', key: 'carbs' },
         { title: 'Protein (g)', key: 'protein' },
-        { title: 'testing', key: 'sum' },
+        { title: 'testing', key: 'fullname' },
         { title: 'Actions', key: 'actions', sortable: false },
       ],
       desserts: [],
