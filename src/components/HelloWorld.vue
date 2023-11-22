@@ -11,6 +11,15 @@
       >
         Test
       </v-btn>
+      <v-btn
+        rounded
+        size="large"
+        color="primary"
+        variant="tonal"
+        @click="printEnt"
+      >
+        Ent
+      </v-btn>
     </v-responsive>
 
     <v-data-table
@@ -161,11 +170,47 @@
       </v-btn>
     </template>
   </v-data-table>
+
+  <v-data-table
+    :headers="memberHeaders"
+    :items="memberList"
+    class="mt-10"
+  >
+   <template v-slot:item.actions={item}>
+    <v-btn
+      variant="tonal"
+      @click="memCheckin"
+    >
+      Check In
+    </v-btn>
+   </template>
+  </v-data-table>
+
+  <v-dialog v-model="memberDialog" width="500">
+    <v-card>
+      <v-card-title>
+        This is Title.
+      </v-card-title>
+      <v-card-text>
+        <p>test dialog</p>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          variant="tonal"
+          @click="memberDialog = false"
+        >
+          Close
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
   </v-container>
 </template>
 
 <script>
 import print from '@/print/sb2'
+import entertainment from '@/print/entertainment'
 
 export default {
   data: () => ({
@@ -201,6 +246,23 @@ export default {
         carbs: 0,
         protein: 0,
       },
+
+      memberDialog: false,
+      memberList: [],
+      memberHeaders: [
+        {
+          title: 'UserID',
+          align: 'start',
+          sortable: false,
+          key: 'username',
+        },
+        { title: 'Name', key: 'name' },
+        { title: 'Team', key: 'team' },
+        { title: 'Section', key: 'section' },
+        { title: 'Type', key: 'type' },
+        { title: 'Status', key: 'status' },
+        { title: 'Actions', key: 'actions', sortable: false },
+      ],
     }),
 
     computed: {
@@ -220,12 +282,50 @@ export default {
 
     created () {
       this.initialize()
+      this.createMember()
     },
 
     
   methods: {
     printPDF(){
       print.exportSb2();
+    },
+
+    printEnt(){
+      entertainment.exportReqEn();
+    },
+    
+    createMember(){
+      this.memberList = [
+        {
+          username: 'EX1',
+          name: 'prame',
+          team: 'CW',
+          section: 'Dev',
+          type: 'ONSITE',
+          status: 'Check-in'
+        },
+        {
+          username: 'EX2',
+          name: 'bam',
+          team: 'CDT',
+          section: 'Dev',
+          type: 'ONSITE',
+          status: 'Check-in'
+        },
+        {
+          username: 'EX3',
+          name: 'fluke',
+          team: 'CW',
+          section: 'Dev',
+          type: 'ONSITE',
+          status: 'Check-in'
+        },
+      ]
+    },
+
+    memCheckin(){
+      this.memberDialog = true
     },
 
     initialize () {
@@ -348,7 +448,7 @@ export default {
       sum(){
         this.desserts.map((item) => {
           item.fullname = item.name + " " + item.name
-          console.log(item);
+          // console.log(item);
         })
       }
   },
