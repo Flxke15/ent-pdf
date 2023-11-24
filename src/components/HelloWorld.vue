@@ -1,28 +1,38 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
-      <h1>สบ.3</h1>
-      <v-btn
-        rounded
-        size="large"
-        color="primary"
-        variant="outlined"
-        @click="printPDF"
-      >
-        Test
-      </v-btn>
-      <v-btn
-        rounded
-        size="large"
-        color="primary"
-        variant="tonal"
-        @click="printEnt"
-      >
-        Ent
-      </v-btn>
-    </v-responsive>
-
-    <v-data-table
+      <v-tabs v-model="tab">
+        <v-tab value="1">Form</v-tab>
+        <v-tab value="2">PDF</v-tab>
+        <v-tab value="3">v-data-table</v-tab>
+      </v-tabs>
+      <v-window v-model="tab">
+        <v-window-item value="1">
+          <Form />
+        </v-window-item>
+        <v-window-item value="2">
+          <h1>สบ.3</h1>
+            <v-btn
+              rounded
+              size="large"
+              color="primary"
+              variant="outlined"
+              @click="printPDF"
+            >
+              Test
+            </v-btn>
+            <v-btn
+              rounded
+              size="large"
+              color="primary"
+              variant="tonal"
+              @click="printEnt"
+            >
+              Ent
+            </v-btn>
+        </v-window-item>
+        <v-window-item value="3">
+          <v-data-table
     :headers="headers"
     :items="desserts"
     :sort-by="[{ key: 'calories', order: 'asc' }]"
@@ -205,15 +215,26 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+        </v-window-item>
+      </v-window>
+    </v-responsive>
+
+   
   </v-container>
 </template>
 
 <script>
 import print from '@/print/sb2'
 import entertainment from '@/print/entertainment'
+import Form from '@/components/Form.vue'
 
 export default {
+  components:{
+    Form
+  },
+
   data: () => ({
+      tab: null,
       dialog: false,
       dialogDelete: false,
       headers: [

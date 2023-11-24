@@ -1,63 +1,65 @@
-function exportReqEn(obj) {
+import pdf from '@/plugins/pdfmake-style'
+
+function exportReqEn() {
   const info = {
-    logo: require('@/static/image.json').logo,
+    // logo: require('@/static/image.json').logo,
     reqType: 1,
     place: 'อำเภอเมืองปทุมธานี',
     registryName: 'นาย พนักงาน ทดสอบ',
-    date: obj.date,
-    qrCode1: obj.qrCode1,
-    qrCode2: obj.qrCode2,
+    // date: obj.date,
+    // qrCode1: obj.qrCode1,
+    // qrCode2: obj.qrCode2,
 
     // Personal info
-    pid: obj.director.pid,
-    identifyDocissue: obj.director.identifyDocissue,
-    identifyAa: obj.director.identifyAaDesc,
-    identifyCc: obj.director.identifyCcDesc,
-    name: obj.director.fullName,
-    nation: obj.director.natDescription,
-    age: obj.director.age,
-    hno: obj.perAddress.hno,
-    alley: obj.perAddress.alley,
-    soi: obj.perAddress.soi,
-    street: obj.perAddress.street,
-    tt: obj.perAddress.ttDescription,
-    aa: obj.perAddress.aaDescription,
-    cc: obj.perAddress.ccDescription,
-    tel: obj.perAddress.texNo,
-    telNo: obj.perAddress.telNo,
+    // pid: obj.director.pid,
+    // identifyDocissue: obj.director.identifyDocissue,
+    // identifyAa: obj.director.identifyAaDesc,
+    // identifyCc: obj.director.identifyCcDesc,
+    // name: obj.director.fullName,
+    // nation: obj.director.natDescription,
+    // age: obj.director.age,
+    // hno: obj.perAddress.hno,
+    // alley: obj.perAddress.alley,
+    // soi: obj.perAddress.soi,
+    // street: obj.perAddress.street,
+    // tt: obj.perAddress.ttDescription,
+    // aa: obj.perAddress.aaDescription,
+    // cc: obj.perAddress.ccDescription,
+    // tel: obj.perAddress.texNo,
+    // telNo: obj.perAddress.telNo,
 
     // Entertainment info
-    enType: obj.enInfo.statute,
-    enNameT: obj.enInfo.nameTh,
-    enNameE: obj.enInfo.nameEn,
-    enNo: obj.EnAddress.hno,
-    enAlley: obj.EnAddress.alley,
-    enSoi: obj.EnAddress.soi,
-    enStreet: obj.EnAddress.street,
-    enTT: obj.EnAddress.ttDescription,
-    enAA: obj.EnAddress.aaDescription,
-    enCC: obj.EnAddress.ccDescription,
-    enSpace: obj.enInfo.area,
-    enRoom: obj.enInfo.roomAmount,
-    enTel: obj.EnAddress.texNo,
-    enTelNo: obj.EnAddress.telNo,
+    // enType: obj.enInfo.statute,
+    // enNameT: obj.enInfo.nameTh,
+    // enNameE: obj.enInfo.nameEn,
+    // enNo: obj.EnAddress.hno,
+    // enAlley: obj.EnAddress.alley,
+    // enSoi: obj.EnAddress.soi,
+    // enStreet: obj.EnAddress.street,
+    // enTT: obj.EnAddress.ttDescription,
+    // enAA: obj.EnAddress.aaDescription,
+    // enCC: obj.EnAddress.ccDescription,
+    // enSpace: obj.enInfo.area,
+    // enRoom: obj.enInfo.roomAmount,
+    // enTel: obj.EnAddress.texNo,
+    // enTelNo: obj.EnAddress.telNo,
   }
-  const [day, month, year] = info.date.split(' ')
+  //const [day, month, year] = info.date.split(' ')
   const docDefinition = {
     pageMargins: [50, 40, 30, 30],
     content: [
-      {
-        image: info.qrCode1,
-        width: 42,
-        height: 42,
-        absolutePosition: { x: 60, y: 75 },
-      },
-      {
-        image: info.logo,
-        width: 70,
-        height: 80,
-        absolutePosition: { x: 263, y: 42 },
-      },
+      // {
+      //   image: info.qrCode1,
+      //   width: 42,
+      //   height: 42,
+      //   absolutePosition: { x: 60, y: 75 },
+      // },
+      // {
+      //   image: info.logo,
+      //   width: 70,
+      //   height: 80,
+      //   absolutePosition: { x: 263, y: 42 },
+      // },
       {
         text: 'แบบ สบ. 1',
         alignment: 'right',
@@ -75,11 +77,11 @@ function exportReqEn(obj) {
         alignment: 'right',
         margin: [0, 10, 40, 0],
       },
-      {
-        text: info.place,
-        fontSize: 15,
-        relativePosition: { x: 340, y: -22 },
-      },
+      // {
+      //   text: info.place,
+      //   fontSize: 15,
+      //   relativePosition: { x: 340, y: -22 },
+      // },
       {
         text: `วันที่${'.'.repeat(20)}เดือน${'.'.repeat(35)}พ.ศ.${'.'.repeat(
           20,
@@ -87,41 +89,41 @@ function exportReqEn(obj) {
         alignment: 'right',
         margin: [0, 0, 40, 0],
       },
-      {
-        text: day,
-        relativePosition: { x: 260, y: -22 },
-      },
-      {
-        text: month,
-        relativePosition: { x: 340, y: -22 },
-      },
-      {
-        text: year,
-        relativePosition: { x: 430, y: -22 },
-      },
+      // {
+      //   text: day,
+      //   relativePosition: { x: 260, y: -22 },
+      // },
+      // {
+      //   text: month,
+      //   relativePosition: { x: 340, y: -22 },
+      // },
+      // {
+      //   text: year,
+      //   relativePosition: { x: 430, y: -22 },
+      // },
       {
         text: `1.ข้าพเจ้า      (กรณีบุคคลธรรมดา)${'.'.repeat(
           40,
         )}สัญชาติ${'.'.repeat(20)}อายุ${'.'.repeat(10)}ปี`,
         margin: [90, 0, 0, 0],
       },
-      {
-        text: info.reqType == 1 ? '√' : '',
-        relativePosition: { x: 138, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.name : '',
-        fontSize: '15',
-        relativePosition: { x: 240, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.nation : '',
-        relativePosition: { x: 376, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.age : '',
-        relativePosition: { x: 445, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? '√' : '',
+      //   relativePosition: { x: 138, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.name : '',
+      //   fontSize: '15',
+      //   relativePosition: { x: 240, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.nation : '',
+      //   relativePosition: { x: 376, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.age : '',
+      //   relativePosition: { x: 445, y: -22 },
+      // },
       {
         table: {
           heights: 15,
@@ -156,78 +158,78 @@ function exportReqEn(obj) {
         )}หรือใบสำคัญประจำตัวคนต่างด้าวเลขที่${'.'.repeat(25)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 1 ? info.pid : '',
-        relativePosition: { x: 130, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? info.pid : '',
+      //   relativePosition: { x: 130, y: -22 },
+      // },
       {
         text: `ออกให้ ณ${'.'.repeat(40)}อำเภอ/เขต${'.'.repeat(
           45,
         )}จังหวัด${'.'.repeat(41)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 1 ? info.identifyDocissue : '',
-        relativePosition: { x: 80, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.identifyAa : '',
-        relativePosition: { x: 230, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.identifyCc : '',
-        relativePosition: { x: 380, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? info.identifyDocissue : '',
+      //   relativePosition: { x: 80, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.identifyAa : '',
+      //   relativePosition: { x: 230, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.identifyCc : '',
+      //   relativePosition: { x: 380, y: -22 },
+      // },
       {
         text: `อยู่บ้านเลขที่${'.'.repeat(30)}ตรอก/ซอย${'.'.repeat(
           45,
         )}ถนน${'.'.repeat(50)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 1 ? info.hno : '',
-        relativePosition: { x: 90, y: -22 },
-      },
-      {
-        text: info.soi ? info.soi : info.alley,
-        relativePosition: { x: 215, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.street : '',
-        relativePosition: { x: 360, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? info.hno : '',
+      //   relativePosition: { x: 90, y: -22 },
+      // },
+      // {
+      //   text: info.soi ? info.soi : info.alley,
+      //   relativePosition: { x: 215, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.street : '',
+      //   relativePosition: { x: 360, y: -22 },
+      // },
       {
         text: `ตำบล/แขวง${'.'.repeat(40)}อำเภอ/เขต${'.'.repeat(
           42,
         )}จังหวัด${'.'.repeat(40)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 1 ? info.tt : '',
-        relativePosition: { x: 90, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.aa : '',
-        relativePosition: { x: 240, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.cc : '',
-        relativePosition: { x: 380, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? info.tt : '',
+      //   relativePosition: { x: 90, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.aa : '',
+      //   relativePosition: { x: 240, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.cc : '',
+      //   relativePosition: { x: 380, y: -22 },
+      // },
       {
         text: `เลขหมายโทรศัพท์พื้นฐาน${'.'.repeat(
           45,
         )}เลขหมายโทรศัพท์เคลื่อนที่${'.'.repeat(41)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 1 ? info.tel : '',
-        relativePosition: { x: 145, y: -22 },
-      },
-      {
-        text: info.reqType == 1 ? info.telNo : '',
-        relativePosition: { x: 380, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? info.tel : '',
+      //   relativePosition: { x: 145, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 1 ? info.telNo : '',
+      //   relativePosition: { x: 380, y: -22 },
+      // },
       {
         text: `(กรณีนิติบุคคล)${'.'.repeat(111)}`,
         margin: [120, 0, 0, 0],
@@ -260,96 +262,96 @@ function exportReqEn(obj) {
         },
         absolutePosition: { x: 146, y: 340 },
       },
-      {
-        text: info.reqType == 2 ? '√' : '',
-        relativePosition: { x: 100, y: -20 },
-      },
-      {
-        text: info.reqType == 2 ? info.bName : '',
-        relativePosition: { x: 200, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 2 ? '√' : '',
+      //   relativePosition: { x: 100, y: -20 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bName : '',
+      //   relativePosition: { x: 200, y: -22 },
+      // },
       {
         text: `จดทะเบียนเป็นนิติบุคคลทะเบียนเลขที่${'.'.repeat(
           48,
         )}เมื่อวันที่${'.'.repeat(28)}ณ${'.'.repeat(17)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 2 ? info.bID : '',
-        relativePosition: { x: 200, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.bCreateDate : '',
-        relativePosition: { x: 355, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.bRegistery : '',
-        relativePosition: { x: 435, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 2 ? info.bID : '',
+      //   relativePosition: { x: 200, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bCreateDate : '',
+      //   relativePosition: { x: 355, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bRegistery : '',
+      //   relativePosition: { x: 435, y: -22 },
+      // },
       {
         text: `สำนักงานแห่งใหญ่ตั้งอยู่เลขที่${'.'.repeat(
           25,
         )}ตรอก/ซอย${'.'.repeat(40)}ถนน${'.'.repeat(33)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 2 ? info.bNo : '',
-        relativePosition: { x: 160, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.bSoi : '',
-        relativePosition: { x: 270, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.bStreet : '',
-        relativePosition: { x: 390, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 2 ? info.bNo : '',
+      //   relativePosition: { x: 160, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bSoi : '',
+      //   relativePosition: { x: 270, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bStreet : '',
+      //   relativePosition: { x: 390, y: -22 },
+      // },
       {
         text: `ตำบล/แขวง${'.'.repeat(40)}อำเภอ/เขต${'.'.repeat(
           42,
         )}จังหวัด${'.'.repeat(40)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 2 ? info.bTT : '',
-        relativePosition: { x: 90, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.bAA : '',
-        relativePosition: { x: 250, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.bCC : '',
-        relativePosition: { x: 370, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 2 ? info.bTT : '',
+      //   relativePosition: { x: 90, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bAA : '',
+      //   relativePosition: { x: 250, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.bCC : '',
+      //   relativePosition: { x: 370, y: -22 },
+      // },
       {
         text: `โดย${'.'.repeat(
           70,
         )}ผู้แทนของนิติบุคคลผู้ขออนุญาต สัญชาติ${'.'.repeat(30)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 2 ? info.bRegisName : '',
-        relativePosition: { x: 55, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.RegisNation : '',
-        relativePosition: { x: 405, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 2 ? info.bRegisName : '',
+      //   relativePosition: { x: 55, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.RegisNation : '',
+      //   relativePosition: { x: 405, y: -22 },
+      // },
       {
         text: `อายุ${'.'.repeat(20)}ปี เลขประจำตัวประชาชน${'.'.repeat(
           65,
         )}หรือใบสำคัญประจำตัว`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.reqType == 2 ? info.RegisAge : '',
-        relativePosition: { x: 55, y: -22 },
-      },
-      {
-        text: info.reqType == 2 ? info.pid : '',
-        relativePosition: { x: 220, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 2 ? info.RegisAge : '',
+      //   relativePosition: { x: 55, y: -22 },
+      // },
+      // {
+      //   text: info.reqType == 2 ? info.pid : '',
+      //   relativePosition: { x: 220, y: -22 },
+      // },
       {
         text: `คนต่างด้าวเลขที่${'.'.repeat(20)}ออกให้ ณ${'.'.repeat(
           25,
@@ -378,10 +380,10 @@ function exportReqEn(obj) {
         text: `2.ข้าพเจ้าขอยื่นคำขอต่อ${'.'.repeat(82)}ซึ่งเป็นพนักงาน`,
         margin: [90, 0, 0, 0],
       },
-      {
-        text: info.reqType == 1 ? info.registryName : '',
-        relativePosition: { x: 210, y: -22 },
-      },
+      // {
+      //   text: info.reqType == 1 ? info.registryName : '',
+      //   relativePosition: { x: 210, y: -22 },
+      // },
       {
         text: 'เจ้าหน้าที่ตามพระราชบัญญัติสถานบริการ พ.ศ. 2509 เพื่อตั้งสถานบริการตาม',
         margin: [30, 0, 0, 0],
@@ -482,10 +484,10 @@ function exportReqEn(obj) {
         },
         absolutePosition: { x: 272, y: 572 },
       },
-      {
-        text: info.enType == 3 ? '√' : '',
-        relativePosition: { x: 225, y: -20 },
-      },
+      // {
+      //   text: info.enType == 3 ? '√' : '',
+      //   relativePosition: { x: 225, y: -20 },
+      // },
       {
         table: {
           heights: 15,
@@ -514,10 +516,10 @@ function exportReqEn(obj) {
         },
         absolutePosition: { x: 309, y: 572 },
       },
-      {
-        text: info.enType == 4 ? '√' : '',
-        relativePosition: { x: 262, y: -20 },
-      },
+      // {
+      //   text: info.enType == 4 ? '√' : '',
+      //   relativePosition: { x: 262, y: -20 },
+      // },
       {
         table: {
           heights: 15,
@@ -546,76 +548,76 @@ function exportReqEn(obj) {
         },
         absolutePosition: { x: 346, y: 572 },
       },
-      {
-        text: info.enType == 5 ? '√' : '',
-        relativePosition: { x: 299, y: -20 },
-      },
+      // {
+      //   text: info.enType == 5 ? '√' : '',
+      //   relativePosition: { x: 299, y: -20 },
+      // },
       {
         text: `โดยใช้ชื่อสถานบริการภาษาไทยว่า${'.'.repeat(115)}`,
         margin: [30, 0, 0, 0],
       },
-      {
-        text: info.enNameT,
-        relativePosition: { x: 180, y: -22 },
-      },
+      // {
+      //   text: info.enNameT,
+      //   relativePosition: { x: 180, y: -22 },
+      // },
       {
         text: `ภาษาต่างประเทศ(ถ้ามี)ว่า${'.'.repeat(128)}`,
         margin: [30, 0, 0, 0],
       },
-      {
-        text: info.enNameE,
-        relativePosition: { x: 170, y: -22 },
-      },
+      // {
+      //   text: info.enNameE,
+      //   relativePosition: { x: 170, y: -22 },
+      // },
       {
         text: `ตั้งอยู่ ณ เลขที่${'.'.repeat(26)}ตรอก/ซอย${'.'.repeat(
           45,
         )}ถนน${'.'.repeat(50)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.enNo,
-        relativePosition: { x: 110, y: -22 },
-      },
-      {
-        text: info.enSoi ? info.enSoi : info.enAlley,
-        relativePosition: { x: 210, y: -22 },
-      },
-      {
-        text: info.enStreet,
-        relativePosition: { x: 350, y: -22 },
-      },
+      // {
+      //   text: info.enNo,
+      //   relativePosition: { x: 110, y: -22 },
+      // },
+      // {
+      //   text: info.enSoi ? info.enSoi : info.enAlley,
+      //   relativePosition: { x: 210, y: -22 },
+      // },
+      // {
+      //   text: info.enStreet,
+      //   relativePosition: { x: 350, y: -22 },
+      // },
       {
         text: `ตำบล/แขวง${'.'.repeat(40)}อำเภอ/เขต${'.'.repeat(
           42,
         )}จังหวัด${'.'.repeat(39)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.enTT,
-        relativePosition: { x: 110, y: -22 },
-      },
-      {
-        text: info.enAA,
-        relativePosition: { x: 250, y: -22 },
-      },
-      {
-        text: info.enCC,
-        relativePosition: { x: 380, y: -22 },
-      },
+      // {
+      //   text: info.enTT,
+      //   relativePosition: { x: 110, y: -22 },
+      // },
+      // {
+      //   text: info.enAA,
+      //   relativePosition: { x: 250, y: -22 },
+      // },
+      // {
+      //   text: info.enCC,
+      //   relativePosition: { x: 380, y: -22 },
+      // },
       {
         text: `เลขหมายโทรศัพท์พื้นฐาน${'.'.repeat(
           45,
         )}เลขหมายโทรศัพท์เคลื่อนที่${'.'.repeat(41)}`,
         margin: [30, 0, 40, 0],
       },
-      {
-        text: info.enTel,
-        relativePosition: { x: 155, y: -22 },
-      },
-      {
-        text: info.enTelNo,
-        relativePosition: { x: 380, y: -22 },
-      },
+      // {
+      //   text: info.enTel,
+      //   relativePosition: { x: 155, y: -22 },
+      // },
+      // {
+      //   text: info.enTelNo,
+      //   relativePosition: { x: 380, y: -22 },
+      // },
       {
         text: '3.ข้าพเจ้ามีคุณสมบัติครบถ้วนตามมาตรา 6 แห่งพระราชบัญญัติสถานบริการ',
         margin: [90, 0, 0, 0],
@@ -647,12 +649,12 @@ function exportReqEn(obj) {
         alignment: 'center',
         margin: [30, 0, 50, 0],
       },
-      {
-        image: info.qrCode2,
-        width: 42,
-        height: 42,
-        absolutePosition: { x: 60, y: 75 },
-      },
+      // {
+      //   image: info.qrCode2,
+      //   width: 42,
+      //   height: 42,
+      //   absolutePosition: { x: 60, y: 75 },
+      // },
       {
         text: '4.ข้าพเจ้ารับทราบถึงหน้าที่ที่ผู้รับอนุญาตตั้งสถานบริการจะต้องถือปฏิบัตอ ตลอดจน',
         margin: [90, 30, 0, 0],
@@ -792,10 +794,10 @@ function exportReqEn(obj) {
         text: 'หนึ่งฉบับ',
         margin: [30, 0, 0, 0],
       },
-      {
-        text: info.name,
-        relativePosition: { x: 255, y: 47 },
-      },
+      // {
+      //   text: info.name,
+      //   relativePosition: { x: 255, y: 47 },
+      // },
       {
         layout: 'noBorders',
         table: {
@@ -813,7 +815,7 @@ function exportReqEn(obj) {
         margin: [190, 30, 0, 0],
       },
     ],
-    defaultStyle: require('@/plugins/pdfmake-style').default.defaultStyleH(),
+    defaultStyle: pdf.SecondaryStyle(),
   }
 
   const pdfDocGenerator = pdfMake.createPdf(docDefinition)
