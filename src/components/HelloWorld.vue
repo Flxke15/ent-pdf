@@ -6,6 +6,7 @@
         <v-tab value="2">PDF</v-tab>
         <v-tab value="3">v-data-table</v-tab>
       </v-tabs>
+
       <v-window v-model="tab">
         <v-window-item value="1">
           <Form />
@@ -34,10 +35,10 @@
         </v-window-item>
         <v-window-item value="3">
           <v-data-table
-    :headers="headers"
-    :items="desserts"
-    :sort-by="[{ key: 'calories', order: 'asc' }]"
-  >
+            :headers="headers"
+            :items="desserts"
+            :sort-by="[{ key: 'calories', order: 'asc' }]"
+          >
     <template v-slot:top>
       <v-toolbar
         flat

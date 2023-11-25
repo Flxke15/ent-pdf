@@ -1,7 +1,9 @@
 import pdf from '@/plugins/pdfmake-style'
 import image from '@/store/image.json'
+// import photo from './pdf-helper'
 
 function exportSb2(){
+    //console.log(photo);
     const info = {
         image: image.logo,
         // checkbox: image.checkbox,
