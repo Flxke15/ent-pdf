@@ -19,8 +19,9 @@
               variant="outlined"
               @click="printPDF"
             >
-              Test
+              Sb2
             </v-btn>
+            
             <v-btn
               rounded
               size="large"
@@ -217,6 +218,15 @@
   </v-dialog>
         </v-window-item>
       </v-window>
+      <v-btn
+              rounded
+              size="large"
+              color="primary"
+              variant="outlined"
+              @click="printSb3"
+            >
+              Sb3
+            </v-btn>
     </v-responsive>
 
    
@@ -225,6 +235,7 @@
 
 <script>
 import print from '@/print/sb2'
+import Sb3 from '@/print/sb3'
 import entertainment from '@/print/entertainment'
 import Form from '@/components/Form.vue'
 
@@ -314,6 +325,10 @@ export default {
 
     printEnt(){
       entertainment.exportReqEn();
+    },
+
+    printSb3(){
+      Sb3.exportSb3();
     },
     
     createMember(){
