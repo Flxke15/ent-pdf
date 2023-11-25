@@ -227,6 +227,16 @@
             >
               Sb3
             </v-btn>
+
+            <v-btn
+              rounded
+              size="large"
+              color="primary"
+              variant="outlined"
+              @click="printSb5"
+            >
+              Sb5
+            </v-btn>
     </v-responsive>
 
    
@@ -236,6 +246,7 @@
 <script>
 import print from '@/print/sb2'
 import Sb3 from '@/print/sb3'
+import Sb5 from '@/print/sb5'
 import entertainment from '@/print/entertainment'
 import Form from '@/components/Form.vue'
 
@@ -329,6 +340,10 @@ export default {
 
     printSb3(){
       Sb3.exportSb3();
+    },
+
+    printSb5(){
+      Sb5.exportSb5();
     },
     
     createMember(){
