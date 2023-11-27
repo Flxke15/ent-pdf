@@ -20,6 +20,7 @@ function exportSb2(){
             {
                 text: `แบบ สบ.2`,
                 bold: true,
+                fontSize: 14,
                 alignment: 'right',
                 relativePosition: { x: 0 , y :-75}
             },
@@ -34,31 +35,31 @@ function exportSb2(){
                     }
                 ],
                 alignment: 'right',
-                relativePosition: { x: 10 , y : 0}
+                relativePosition: { x: 10 , y : -10}
             },
             {
                 text: `ที่ปิดรูปถ่าย\nผู้รับอนุญาตหรือ\nผู้แทนนิติบุคคล\nผู้รับอนุญาต\nขนาด 4x6 ซม.`,
                 alignment: 'center',
                 fontSize: 14,
-                relativePosition: { x: 187 , y : -25}
+                relativePosition: { x: 187 , y : -35}
             },
             {
                 text: `ใบอนุญาต`,
                 bold: true,
                 alignment: 'center',
-                fontSize: 18,
+                fontSize: 16,
                 margin: [0,10,0,0]
             },
             {
                 text: `ให้ตั้งสถานบริการ`,
                 bold: true,
-                fontSize: 18,
+                fontSize: 16,
                 alignment: 'center',
             },
             {
                 text: `ประจำปี พุทธศักราช${'.'.repeat(25)}`,
                 bold: true,
-                fontSize: 18,
+                fontSize: 16,
                 alignment: 'center',
             },
             {
