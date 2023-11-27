@@ -2,11 +2,11 @@ import pdf from '@/plugins/pdfmake-style'
 import image from '@/store/image.json'
 // import photo from './pdf-helper'
 
-function exportSb2(){
-    //console.log(photo);
+function exportSb2(data){
+    console.log(data);
     const info = {
         image: image.logo,
-        // checkbox: image.checkbox,
+        year : data.year
     }
 
     const docDefination = {
@@ -61,6 +61,10 @@ function exportSb2(){
                 bold: true,
                 fontSize: 16,
                 alignment: 'center',
+            },
+            {
+                text : info.year,
+                relativePosition : { x : 260, y : -25}
             },
             {
                 text: `เลขที่${'.'.repeat(17)}/ ${'.'.repeat(17)}`,

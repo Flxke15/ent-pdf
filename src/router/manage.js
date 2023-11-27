@@ -1,15 +1,15 @@
-import HelloWorld from '@/components/HelloWorld'
+import Main from '@/views/Main'
 import Test from '@/components/Test'
 
 export default [
     {
         path: '/',
-        redirect: '/HelloWorld'
+        redirect: '/Main'
     },
     {
-        path: '/HelloWorld',
-        name: 'HelloWorld',
-        component: HelloWorld
+        path: '/Main',
+        name: 'Main',
+        component: Main
     },
     {
         path: '/Test',
