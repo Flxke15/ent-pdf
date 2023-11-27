@@ -7,7 +7,7 @@ function exportSb5(){
     }
 
     const docDefination = {
-        pageMargins : [70,60,70,30],
+        pageMargins : [80,70,60,30],
         content : [
             {
                 text : `แบบ สบ.5`
